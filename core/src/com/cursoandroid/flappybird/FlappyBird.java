@@ -56,7 +56,9 @@ public class FlappyBird extends ApplicationAdapter {
     //Câmera - REsolução em diferentes celulares
     private OrthographicCamera camera;
     private Viewport viewport;
-    private final float VIRTUAL_WIDTH = 768;
+
+    /*///////////////PROBLEMA NA RESOLUÇÃO, ALTERAR AS LINHAS ABAIXO*/
+    private final float VIRTUAL_WIDTH = 728;
     private final float VIRTUAL_HEIGHT = 1024;
 
 	
@@ -100,7 +102,7 @@ public class FlappyBird extends ApplicationAdapter {
         //Configuração da camera
         camera = new OrthographicCamera();
         camera.position.set(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2, 0);
-        viewport = new StretchViewport(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+        viewport = new StretchViewport(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, camera);
 
         larguraDispositivo = VIRTUAL_WIDTH;
         alturaDispositivo = VIRTUAL_HEIGHT;
@@ -217,7 +219,7 @@ public class FlappyBird extends ApplicationAdapter {
         }
 
 	}
-	
+
 	@Override
 	public void resize (int width, int height) {
         viewport.update(width, height);
